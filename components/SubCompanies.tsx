@@ -95,7 +95,11 @@ const SubCompanies = () => {
         </motion.div>
 
         {/* Companies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="relative -mx-4 sm:-mx-6 lg:-mx-24 p-6 px-10">
+          {/* Background Image for Cards Section */}
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10" 
+               style={{backgroundImage: "url('/images/academy.jpg')"}}></div>
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8 py-8">
           {companies.map((company, index) => {
             const Icon = company.icon
             return (
@@ -171,6 +175,7 @@ const SubCompanies = () => {
               </motion.div>
             )
           })}
+          </div>
         </div>
       </div>
     </section>
