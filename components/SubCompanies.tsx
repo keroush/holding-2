@@ -7,7 +7,7 @@ const SubCompanies = () => {
   const companies = [
     {
       name: "Tamleek",
-      description: "Premium real estate development and investment solutions across strategic locations.",
+      description: "A group of specialized companies in the fields of tower construction, building, cryptocurrency, consulting, real estate investment, and global investment.",
       icon: Building2,
       color: "from-gray-500 to-cyan-600",
       services: ["Property Development", "Investment Advisory", "Asset Management"],
@@ -18,7 +18,7 @@ const SubCompanies = () => {
     },
     {
       name: "B.etemad academy",
-      description: "Strategic investment firm focusing on high-growth opportunities and portfolio diversification.",
+      description: "Specialized training in digital skills, programming, and business with top instructors and practical courses. The academy, with a hands-on and practical approach, prepares students for the job market.",
       icon: TrendingUp,
       color: "from-gray-500 to-cyan-600",
       services: ["Private Equity", "Venture Capital", "Financial Advisory"],
@@ -29,7 +29,7 @@ const SubCompanies = () => {
     },
     {
       name: "Estekhdam",
-      description: "Luxury hospitality experiences and premium service management across multiple venues.",
+      description: "Connecting Iranian talents to suitable job opportunities using artificial intelligence and data analysis. This platform creates the best match between job seekers and employers through advanced algorithms.",
       icon: Users,
       color: "from-gray-500 to-cyan-600",
       services: ["Hotel Management", "Event Planning", "Luxury Services"],
@@ -40,7 +40,7 @@ const SubCompanies = () => {
     },
     {
       name: "Acclerator",
-      description: "International trade and logistics solutions connecting markets across continents.",
+      description: "Supporting emerging startups through investment, mentoring, and access to an extensive business network. The accelerator prepares startups for success with comprehensive programs.",
       icon: Globe,
       color: "from-gray-500 to-cyan-600",
       services: ["Import/Export", "Supply Chain", "Market Analysis"],
@@ -51,7 +51,7 @@ const SubCompanies = () => {
     },
     {
       name: "Gold",
-      description: "Cutting-edge technology solutions and digital transformation services for modern businesses.",
+      description: "An online platform for buying and selling gold and jewelry with authenticity guarantees and transparent pricing. Gold uses modern technologies to provide customers with a safe and convenient shopping experience.",
       icon: Zap,
       color: "from-gray-500 to-cyan-600",
       services: ["Software Development", "Digital Solutions", "Tech Consulting"],
@@ -62,7 +62,7 @@ const SubCompanies = () => {
     },
     {
       name: "Golden Life",
-      description: "Strategic investment firm focusing on high-growth opportunities and portfolio diversification.",
+      description: "Platform for purchasing and managing commercial units in luxury and exclusive towers",
       icon: TrendingUp,
       color: "from-gray-500 to-cyan-600",
       services: ["Private Equity", "Venture Capital", "Financial Advisory"],
