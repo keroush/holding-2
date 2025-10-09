@@ -1,7 +1,9 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import OurFields from '@/components/OurFields'
 import SubCompanies from '@/components/SubCompanies'
 import EventsLiberate from '@/components/EventsLiberate'
+import HoldingMedia from '@/components/HoldingMedia'
 import Pillars from '@/components/Pillars'
 import Results from '@/components/Results'
 import Footer from '@/components/Footer'
@@ -13,8 +15,8 @@ export default function Home() {
       <Navigation />
       <Hero />
       <SubCompanies />
-      <EventsLiberate />
-      <Results />
+      <OurFields />
+      <HoldingMedia />
       <Footer />
       {/**<BottomNavbar /> */}
     </main>

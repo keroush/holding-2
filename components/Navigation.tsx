@@ -1,36 +1,42 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { Menu, X, ChevronDown, LogIn } from 'lucide-react'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+
+  const handleLoginClick = () => {
+    router.push('/login')
+  }
 
   const navItems = [
     {
+      name: 'Home',
+      href: '#home',
+      submenu: ['Overview', 'Vision', 'Mission']
+    },
+    {
+      name: 'Our Fields',
+      href: '#fields',
+      submenu: ['Real Estate', 'Trade Market', 'Education', 'Upcoming Ventures']
+    },
+    {
+      name: 'Sub Companies',
+      href: '#companies',
+      submenu: ['Tamleek', 'B.etemad Academy', 'Estekhdam', 'Accelerator', 'Gold', 'Golden Life']
+    },
+    {
       name: 'About',
       href: '#about',
-      submenu: ['The Story', 'The System', 'The Science']
+      submenu: ['Our Story', 'Leadership', 'Values']
     },
     {
-      name: 'Programs',
-      href: '#programs',
-      submenu: ['All Programs', 'Inner Circle', 'Business Accelerator', 'Platinum Partnership']
-    },
-    {
-      name: 'Events',
-      href: '#events',
-      submenu: ['Unleash the Power Within', 'Date With Destiny', 'Business Mastery', 'Wealth Mastery']
-    },
-    {
-      name: 'Coaching',
-      href: '#coaching',
-      submenu: ['Results Coaching', 'Business Coaching', 'Business Results Training']
-    },
-    {
-      name: 'Resources',
-      href: '#resources',
-      submenu: ['Blog', 'Podcast', 'Newsletter', 'Free Resources']
+      name: 'Contact',
+      href: '#contact',
+      submenu: ['Get in Touch', 'Locations', 'Partnerships']
     }
   ]
 
@@ -44,8 +50,9 @@ const Navigation = () => {
               src="/svg/logo.svg" 
               alt="Logo" 
               className="h-30 w-30 -mr-[170px]"
+              style={{ filter: 'brightness(0) saturate(100%) invert(85%) sepia(85%) saturate(1352%) hue-rotate(15deg) brightness(119%) contrast(119%)' }}
             />
-            <h1 className="text-2xl font-bold text-yellow-300">
+            <h1 className="text-2xl font-bold text-yellow-300/90">
               B.Etemed Holding
             </h1>
           </div>
@@ -79,10 +86,14 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* Login Button */}
           <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300">
-              Get Started
+            <button 
+              onClick={handleLoginClick}
+              className="bg-yellow-300/90 text-black px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 flex items-center gap-2"
+            >
+              <LogIn className="h-4 w-4" />
+              Login
             </button>
           </div>
 
@@ -112,8 +123,12 @@ const Navigation = () => {
                 </a>
               </div>
             ))}
-            <button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium">
-              Get Started
+            <button 
+              onClick={handleLoginClick}
+              className="w-full mt-4 bg-yellow-300/90 text-black px-6 py-2 rounded-full font-medium flex items-center justify-center gap-2"
+            >
+              <LogIn className="h-4 w-4" />
+              Login
             </button>
           </div>
         </div>
