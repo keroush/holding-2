@@ -1,5 +1,8 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
+import SearchBar from '@/components/SearchBar'
+import CategoryScroll from '@/components/CategoryScroll'
+import ServicesGrid from '@/components/ServicesGrid'
 import OurFields from '@/components/OurFields'
 import SubCompanies from '@/components/SubCompanies'
 import EventsLiberate from '@/components/EventsLiberate'
@@ -11,9 +14,12 @@ import BottomNavbar from '@/components/BottomNavbar'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-gray-800 overflow-x-hidden">
       <Navigation />
+      <SearchBar />
       <Hero />
+      <CategoryScroll />
+      <ServicesGrid />
       <SubCompanies />
       <OurFields />
       <HoldingMedia />

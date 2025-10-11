@@ -9,9 +9,9 @@ const Hero = () => {
 
   const slides = [
     {
-      SuperTitle: "Brian Etemad Holding",
+      SuperTitle: "TAMLEEK Holding",
       title: "",
-      subtitle: '"Be with God and reign"',
+      subtitle: 'Be with God and reign',
       description: "Master Your Mindest Unlock Potential",
       primaryButton: "Grow Your Business",
       secondaryButton: "View More",
@@ -115,7 +115,7 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hidden md:flex">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}

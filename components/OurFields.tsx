@@ -69,7 +69,7 @@ const OurFields = () => {
   ]
 
   return (
-    <section className="section-padding bg-gray-900">
+    <section className="section-padding bg-gray-900 rounded-t-2xl md:rounded-none overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -79,10 +79,10 @@ const OurFields = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-6xl font-bold text-white mb-6">
             Our <span className="text-yellow-300">Fields of Expertise</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+          <p className="text-sm text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
             Brian Etemad Holding operates across diverse industries, delivering innovative solutions 
             and strategic expertise that drive sustainable growth and create lasting value for our clients and partners.
           </p>
@@ -132,19 +132,19 @@ const OurFields = () => {
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-between">
                       {/* Title */}
-                      <h3 className="text-xl font-bold text-white mb-4 group-hover:text-yellow-300 transition-colors duration-300 leading-tight">
+                      <h3 className="text-sm font-bold text-white mb-4 group-hover:text-yellow-300 transition-colors duration-300 leading-tight">
                         {field.title}
                       </h3>
                       
                       {/* Stats Badge */}
                       <div className="mb-4">
-                        <span className="text-yellow-300 font-semibold text-sm bg-yellow-300/10 px-4 py-2 rounded-full border border-yellow-300/20 inline-block">
+                        <span className="text-yellow-300 font-semibold text-xs bg-yellow-300/10 px-4 py-2 rounded-full border border-yellow-300/20 inline-block">
                           {field.stats}
                         </span>
                       </div>
                       
                       {/* Highlight */}
-                      <p className="text-gray-400 text-sm italic leading-relaxed mb-6">
+                      <p className="text-gray-400 text-xs italic leading-relaxed mb-6">
                         {field.highlight}
                       </p>
                       
@@ -178,7 +178,7 @@ const OurFields = () => {
         </div>
 
 
-        {/***************************************************************** */}
+        {/******************** What Comes Next? ***************************** */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
           {/* what com */}
           <motion.div
@@ -188,10 +188,10 @@ const OurFields = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-6">
               And What Comes<span className="text-yellow-300"> Next?</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-sm text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
             In the mind of a skilled and experienced investor, there are always new things on the way! Do you just anchor your ship or do you embark on a new adventure with it?
             </p>
           </motion.div>
@@ -237,7 +237,7 @@ const OurFields = () => {
                         </h3>
                         
                         {/* Description */}
-                        <p className="text-gray-500 text-sm leading-relaxed">
+                        <p className="text-gray-500 text-xs leading-relaxed">
                           {venture.description}
                         </p>
                       </div>
@@ -257,18 +257,18 @@ const OurFields = () => {
           viewport={{ once: true }}
           className="text-center mt-16 pt-16 border-t border-gray-700"
         >
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h3 className="text-xl md:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Business?
           </h3>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-300 mb-8 max-w-2xl mx-auto">
             Discover how our expertise across multiple industries can help you achieve 
             sustainable growth and unlock new opportunities for success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-yellow-300/25 transition-all duration-300 hover:scale-105">
+            <button className="bg-gradient-to-r from-yellow-300 to-yellow-500 text-black px-8 py-4 rounded-full font-bold text-md hover:shadow-lg hover:shadow-yellow-300/25 transition-all duration-300 hover:scale-105">
               Explore Our Services
             </button>
-            <button className="border-2 border-gray-600 text-gray-300 px-8 py-4 rounded-full font-semibold text-lg hover:border-yellow-300 hover:text-yellow-300 transition-all duration-300">
+            <button className="border-2 border-gray-600 text-gray-300 px-8 py-4 rounded-full font-semibold text-md hover:border-yellow-300 hover:text-yellow-300 transition-all duration-300">
               Contact Our Experts
             </button>
           </div>
