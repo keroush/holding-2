@@ -68,6 +68,11 @@ const CategoryScroll = () => {
 
         {/* Scrollable Container */}
         <div className="relative">
+
+          {/* side blur */}
+          <div className='absolute -top-[2.4rem] -right-[0.8rem] h-[11rem] w-[0.9rem] bg-gray-500/10 blur-sm'></div>
+          <div className='absolute -top-[2.4rem] -left-[0.8rem]  h-[11rem] w-[0.9rem] bg-gray-500/10 blur-sm'></div>
+          
           {/* Horizontal Scroll Container */}
           <div
             ref={scrollRef}

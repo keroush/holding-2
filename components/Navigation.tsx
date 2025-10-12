@@ -45,7 +45,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 mt-[0.5rem] flex items-center space-x-2 md:space-x-4 md:mt-0 overflow-hidden">
+          <div className="flex-shrink-0 flex items-center space-x-2 md:space-x-4 md:mt-0 overflow-hidden">
             <img 
               src="/svg/logo.svg" 
               alt="Logo" 
@@ -112,7 +112,7 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-4 pt-2 pb-4 space-y-2 bg-black/98 backdrop-blur-md border-t border-gray-800 max-h-screen overflow-y-auto">
+          <div className="px-4 pt-2 pb-4 space-y-2 bg-black/98 backdrop-blur-md max-h-screen overflow-y-auto">
             {navItems.map((item) => (
               <div key={item.name} className="border-b border-gray-800/50 pb-2">
                 <a
