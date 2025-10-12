@@ -67,7 +67,7 @@ const ServicesGrid = () => {
   ]
 
   return (
-    <section className="md:hidden bg-gray-900 py-6 rounded-3xl border-t-[0.1rem]">
+    <section className="md:hidden bg-gray-900 py-6 rounded-3xl border-t-[0.1rem] border-b-[0.1rem]">
       <div className="px-4">
         {/* Section Header */}
         <div className="text-center mb-6">

@@ -203,7 +203,7 @@ const SubCompanies = () => {
         </div>
 
         {/* Mobile Swiper Layout */}
-        <div className="md:hidden relative -mt-10 -mb-10 overflow-hidden">
+        <div className="md:hidden relative -my-8 overflow-hidden">
           {/* Swiper Container */}
           <div className="relative z-10 overflow-hidden">
             <div 
