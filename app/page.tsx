@@ -11,6 +11,7 @@ import Pillars from '@/components/Pillars'
 import Results from '@/components/Results'
 import Footer from '@/components/Footer'
 import BottomNavbar from '@/components/BottomNavbar'
+import AddvertiserSwiper from '@/components/AddvertiserSwiper'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <SearchBar />
       <Hero />
       <CategoryScroll />
+      <AddvertiserSwiper />
       <ServicesGrid />
       <SubCompanies />
       <OurFields />

@@ -69,7 +69,7 @@ const OurFields = () => {
   ]
 
   return (
-    <section className="section-padding bg-gray-900 rounded-t-3xl md:rounded-none overflow-hidden border-t-[0.1rem]">
+    <section className="section-padding bg-gray-900 rounded-t-3xl md:rounded-none overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
