@@ -98,7 +98,7 @@ const AddvertiserSwiper = () => {
   }
 
   return (
-    <section className="section-padding bg-gray-800 -mt-[3.4rem] -mb-[2.3rem]">
+    <section className="section-padding bg-gray-800 -mt-[3.4rem] -mb-[2.3rem] md:hidden">
       <div className="max-w-7xl mx-auto px-3 md:hidden relative overflow-hidden">
           {/* Swiper Container */}
           <div className="relative z-10 overflow-hidden">
