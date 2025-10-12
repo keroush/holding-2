@@ -12,10 +12,10 @@ const SearchBar = () => {
   }
 
   return (
-    <section className="md:hidden bg-gray-900 px-4 py-3 pb-4 mt-16 rounded-t-lg rounded-b-2xl overflow-hidden">
-      <div className="flex items-center space-x-3 w-full">
+    <section className="md:hidden bg-gray-900 px-4 py-3 pb-4 mt-16 rounded-t-lg rounded-b-3xl overflow-hidden border-b-[0.1rem] shadow-b-2xl">
+      <div className="flex items-center space-x-3 w-full bg-gradient-to-br from-yellow-500/95 to-yellow-700/95  p-1 rounded-xl">
         {/* Dubai Logo Cube */}
-        <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-lg flex items-center justify-center shadow-lg border border-red-500/30">
+        <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg rounded-r-xl">
           <div className="text-white font-bold text-xs text-center leading-tight">
             <div>UAE</div>
             <div className="text-[8px] text-red-200">DUBAI</div>
@@ -23,7 +23,7 @@ const SearchBar = () => {
         </div>
 
         {/* Search Input Container */}
-        <div className={`relative flex items-center bg-gray-800 rounded-lg border-2 transition-all duration-200 flex-1 ${
+        <div className={`relative flex items-center bg-gray-800 rounded-lg border-2 transition-all duration-200 flex-1 rounded-l-3xl ${
           isFocused ? 'border-yellow-300/50' : 'border-gray-700'
         }`}>
           {/* Search Icon */}

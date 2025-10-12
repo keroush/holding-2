@@ -203,11 +203,7 @@ const SubCompanies = () => {
         </div>
 
         {/* Mobile Swiper Layout */}
-        <div className="md:hidden relative -mt-8 -mb-10 overflow-hidden">
-          {/* Background Image for Cards Section */}
-          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10" 
-               style={{backgroundImage: "url('/images/academy.jpg')"}}></div>
-          
+        <div className="md:hidden relative -mt-10 -mb-10 overflow-hidden">
           {/* Swiper Container */}
           <div className="relative z-10 overflow-hidden">
             <div 
