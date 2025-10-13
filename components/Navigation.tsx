@@ -42,10 +42,28 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-gray-800 overflow-hidden">
-      {/* Golden Rainbow - Mobile Only */}
-      <div className="md:hidden absolute top-0 left-0 w-16 h-16 pointer-events-none">
-        <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-yellow-400 via-orange-500 via-red-500 via-pink-500 via-purple-500 to-blue-500 opacity-80 rounded-br-full"></div>
-        <div className="absolute top-1 left-1 w-14 h-14 bg-black/95 rounded-br-full"></div>
+      {/* Golden Wave - Mobile Only */}
+      <div className="md:hidden absolute top-0 left-0 w-full h-2 pointer-events-none">
+        <svg className="absolute top-0 left-0 w-full h-10" viewBox="0 0 1200 24" preserveAspectRatio="none">
+          <path d="M0,8 Q300,16 600,8 T1200,8 L1200,0 L0,0 Z" fill="url(#goldWave)" opacity="0.5"/>
+          <defs>
+            <linearGradient id="goldWave" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#fbbf24"/>
+              <stop offset="50%" stopColor="#f59e0b"/>
+              <stop offset="100%" stopColor="#d97706"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <svg className="absolute top-0 left-0 w-full h-20" viewBox="0 0 1200 24" preserveAspectRatio="none">
+          <path d="M0,8 Q300,16 600,8 T1200,8 L1200,0 L0,0 Z" fill="url(#goldWave)" opacity="0.4"/>
+          <defs>
+            <linearGradient id="goldWave" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#fbbf24"/>
+              <stop offset="50%" stopColor="#f59e0b"/>
+              <stop offset="100%" stopColor="#d97706"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

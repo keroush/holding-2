@@ -3,14 +3,14 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const HoldingMedia = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [currentMobileSlide, setCurrentMobileSlide] = useState(0)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [currentX, setCurrentX] = useState(0)
-  const [dragOffset, setDragOffset] = useState(0)
   const mediaFeatures = [
     {
       title: "Global Investment Leadership",
@@ -100,72 +100,6 @@ const HoldingMedia = () => {
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
   }
-
-  // Mobile swiper functions
-  const nextMobileSlide = () => {
-    setCurrentMobileSlide((prev) => (prev + 1) % mediaFeatures.length)
-  }
-
-  const prevMobileSlide = () => {
-    setCurrentMobileSlide((prev) => (prev - 1 + mediaFeatures.length) % mediaFeatures.length)
-  }
-
-  const goToMobileSlide = (index: number) => {
-    setCurrentMobileSlide(index)
-  }
-
-  // Mouse swipe functionality for mobile
-  const handleMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault()
-    setIsDragging(true)
-    setStartX(e.clientX)
-    setCurrentX(e.clientX)
-    setDragOffset(0)
-  }
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return
-    e.preventDefault()
-    const newCurrentX = e.clientX
-    const diff = newCurrentX - startX
-    setCurrentX(newCurrentX)
-    setDragOffset(diff)
-  }
-
-  const handleMouseUp = (e: React.MouseEvent) => {
-    if (!isDragging) return
-    e.preventDefault()
-    setIsDragging(false)
-    
-    const threshold = 50 // Minimum drag distance to trigger slide change
-    if (Math.abs(dragOffset) > threshold) {
-      if (dragOffset > 0) {
-        // Dragged right - go to previous slide
-        prevMobileSlide()
-      } else {
-        // Dragged left - go to next slide
-        nextMobileSlide()
-      }
-    }
-    
-    setDragOffset(0)
-  }
-
-  const handleMouseLeave = () => {
-    if (isDragging) {
-      setIsDragging(false)
-      setDragOffset(0)
-    }
-  }
-
-  // Mobile auto-swipe functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMobileSlide((prev) => (prev + 1) % mediaFeatures.length)
-    }, 4000) // 4 seconds
-
-    return () => clearInterval(interval)
-  }, [mediaFeatures.length])
 
   return (
     <section className="section-padding bg-black overflow-hidden">
@@ -287,24 +221,31 @@ const HoldingMedia = () => {
 
         {/* Mobile Media Features Swiper */}
         <div className="md:hidden relative">
-          {/* Mobile Swiper Container */}
-          <div className="relative overflow-hidden">
-            <div 
-              className="flex transition-transform duration-300 ease-in-out cursor-grab active:cursor-grabbing select-none"
-              style={{ 
-                transform: `translateX(calc(-${currentMobileSlide * 100}% + ${isDragging ? dragOffset : 0}px))`,
-                transition: isDragging ? 'none' : 'transform 300ms ease-in-out'
-              }}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseLeave}
-            >
-              {mediaFeatures.map((feature, index) => (
-                <div
-                  key={feature.title}
-                  className="w-full flex-shrink-0 px-4"
-                >
+          <Swiper
+            modules={[Navigation, Autoplay, Pagination]}
+            spaceBetween={16}
+            slidesPerView={1}
+            loop={true}
+            navigation={{
+              nextEl: '.swiper-button-next-media',
+              prevEl: '.swiper-button-prev-media',
+            }}
+            pagination={{
+              el: '.swiper-pagination-media',
+              clickable: true,
+              bulletClass: 'swiper-pagination-bullet-media',
+              bulletActiveClass: 'swiper-pagination-bullet-active-media',
+            }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            grabCursor={true}
+            className="relative overflow-hidden"
+          >
+            {mediaFeatures.map((feature, index) => (
+              <SwiperSlide key={feature.title}>
+                <div className="px-4">
                   <div className="rounded-2xl overflow-hidden shadow-lg mx-2">
                     {/* Media Image */}
                     <div className="relative h-64 overflow-hidden">
@@ -347,39 +288,18 @@ const HoldingMedia = () => {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-          {/* Mobile Navigation Arrows */}
-          <button
-            onClick={prevMobileSlide}
-            className="absolute right-[3rem] -bottom-[2.3rem] z-20 w-10 h-10 bg-yellow-300/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-yellow-300/40 transition-all duration-300 border-2 border-yellow-300/30"
-          >
+          {/* Custom Mobile Navigation Arrows */}
+          <button className="swiper-button-prev-media absolute right-[4.6rem] -top-[1.3rem] z-20 w-10 h-10 bg-yellow-300/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-yellow-300/40 transition-all duration-300 border-2 border-yellow-300/30">
             <ChevronLeft className="h-4 w-4 text-yellow-300" />
           </button>
           
-          <button
-            onClick={nextMobileSlide}
-            className="absolute right-[0.4rem] -bottom-[2.3rem] z-20 w-10 h-10 bg-yellow-300/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-yellow-300/40 transition-all duration-300 border-2 border-yellow-300/30"
-          >
+          <button className="swiper-button-next-media absolute right-[2rem] -top-[1.3rem] z-20 w-10 h-10 bg-yellow-300/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-yellow-300/40 transition-all duration-300 border-2 border-yellow-300/30">
             <ChevronRight className="h-4 w-4 text-yellow-300" />
           </button>
-
-          {/* Mobile Slide Indicators */}
-          <div className="absolute -bottom-[1.3rem] left-4 flex space-x-2 z-10">
-            {mediaFeatures.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToMobileSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentMobileSlide 
-                    ? 'bg-yellow-300 scale-125' 
-                    : 'bg-gray-500 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
         </div>
 
         {/* Bottom CTA */}
