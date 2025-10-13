@@ -60,11 +60,12 @@ const CategoryScroll = () => {
 
   return (
     <section className="md:hidden pb-3 pt-4 mt-16">
+      <div className="absolute inset-0 h-20 bg-cover bg-center bg-no-repeat opacity-40 mt-16" style={{backgroundImage: "url('/images/academy.jpg')"}}></div>
       <div className="px-4">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-bold text-white">Whats new?</h3>
-          <span className="text-xs text-gray-400">View All</span>
+          <h3 className="text-sm font-bold text-white z-10">Whats new?</h3>
+          <span className="text-xs text-gray-400 z-10">View All</span>
         </div>
 
         {/* Swiper Container */}
