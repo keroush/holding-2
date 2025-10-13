@@ -186,7 +186,7 @@ const SubCompanies = () => {
         </div>
 
         {/* Mobile Swiper Layout */}
-        <div className="md:hidden relative -my-11 overflow-hidden">
+        <div className="md:hidden relative -my-11 overflow-hidden mx-[0.09rem]">
           <Swiper
             modules={[Navigation, Autoplay, Pagination]}
             spaceBetween={16}

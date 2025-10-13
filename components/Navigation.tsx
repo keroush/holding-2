@@ -43,7 +43,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-gray-800 overflow-hidden">
       {/* Golden Wave - Mobile Only */}
-      <div className="md:hidden absolute top-0 left-0 w-full h-2 pointer-events-none">
+      <div className="md:hidden absolute top-0 left-0 w-full h-full pointer-events-none">
         <svg className="absolute top-0 left-0 w-full h-10" viewBox="0 0 1200 24" preserveAspectRatio="none">
           <path d="M0,8 Q300,16 600,8 T1200,8 L1200,0 L0,0 Z" fill="url(#goldWave)" opacity="0.5"/>
           <defs>
@@ -64,6 +64,16 @@ const Navigation = () => {
             </linearGradient>
           </defs>
         </svg>
+        <svg className="absolute bottom-0 left-0 w-full h-[4rem] rotate-180" viewBox="0 0 1200 24" preserveAspectRatio="none">
+          <path d="M0,8 Q300,16 600,8 T1200,8 L1200,0 L0,0 Z" fill="purple" opacity="0.3"/>
+          <defs>
+            <linearGradient id="goldWave" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#fbbf24"/>
+              <stop offset="50%" stopColor="#f59e0b"/>
+              <stop offset="100%" stopColor="#d97706"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +86,7 @@ const Navigation = () => {
               className="h-[12rem] w-[12rem] -mr-[9rem] md:h-[14.5rem] md:w-[14.5rem] md:-mr-[10.9rem] flex-shrink-0"
               style={{ filter: 'brightness(0) saturate(100%) invert(85%) sepia(85%) saturate(1352%) hue-rotate(15deg) brightness(119%) contrast(119%)' }}
             />
-            <h1 className="text-lg md:text-3xl font-bold text-yellow-300/90 truncate">
+            <h1 className="text-lg md:text-3xl font-bold text-yellow-300/90 truncate z-50">
               TAMLEEK Holding
             </h1>
           </div>

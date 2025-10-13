@@ -72,7 +72,7 @@ const CategoryScroll = () => {
           {/* side blur */}
           <div className='absolute -top-[50%] -right-[0.8rem] h-[11rem] w-[0.9rem] bg-gray-700/20 blur-sm z-10'></div>
           <div className='absolute -top-[50%] -left-[0.8rem]  h-[11rem] w-[0.9rem] bg-gray-700/20 blur-sm z-10'></div>
-          
+
           <Swiper
             modules={[FreeMode]}
             spaceBetween={16}
@@ -83,7 +83,7 @@ const CategoryScroll = () => {
           >
             {categories.map((category) => (
               <SwiperSlide key={category.id} className="!w-auto">
-                <div className="flex flex-col items-center cursor-pointer group bg-gray-800/20">
+                <div className="flex flex-col items-center cursor-pointer group">
                   {/* Circular Image Container */}
                   <div className="relative w-[4.4rem] h-[4.4rem] mb-2">
                     {/* Instagram story-style white border */}

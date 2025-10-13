@@ -12,7 +12,7 @@ const SearchBar = () => {
   }
 
   return (
-    <section className="md:hidden bg-gray-900 px-4 py-3 pb-4 mt-16 rounded-t-lg rounded-b-3xl overflow-hidden border-b-[0.1rem] border-yellow-600 shadow-b-2xl">
+    <section className="md:hidden bg-gray-900 px-4 py-1 pb-2 mt-16 rounded-t-lg rounded-b-3xl overflow-hidden border-b-[0.1rem] border-yellow-600 shadow-b-2xl">
       <div className="flex items-center space-x-3 w-full bg-gradient-to-br from-yellow-500/95 to-yellow-700/95  p-1 rounded-xl">
         {/* Dubai Logo Cube */}
         <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg rounded-r-xl">
