@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-800 overflow-x-hidden">
       <Navigation />
-      <SearchBar />
+      {/**<SearchBar /> */}
       <Hero />
       <CategoryScroll />
       <AddvertiserSwiper />

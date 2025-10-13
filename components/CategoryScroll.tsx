@@ -59,7 +59,7 @@ const CategoryScroll = () => {
   ]
 
   return (
-    <section className="md:hidden pb-3 pt-4">
+    <section className="md:hidden pb-3 pt-4 mt-16">
       <div className="px-4">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-4">
