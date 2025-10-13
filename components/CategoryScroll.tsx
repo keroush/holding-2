@@ -1,10 +1,13 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const CategoryScroll = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
 
   const categories = [
     {
@@ -57,6 +60,31 @@ const CategoryScroll = () => {
     }
   ]
 
+  // Mouse swipe functionality
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return
+    setIsDragging(true)
+    setStartX(e.clientX)
+    setScrollLeft(scrollRef.current.scrollLeft)
+    e.preventDefault()
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return
+    e.preventDefault()
+    const x = e.clientX
+    const walk = (x - startX) * 1.5 // Scroll speed multiplier
+    scrollRef.current.scrollLeft = scrollLeft - walk
+  }
+
   return (
     <section className="md:hidden pb-3 pt-4">
       <div className="px-4">
@@ -76,11 +104,15 @@ const CategoryScroll = () => {
           {/* Horizontal Scroll Container */}
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide px-2 py-2"
+            className="flex gap-4 overflow-x-auto scrollbar-hide px-2 py-2 cursor-grab active:cursor-grabbing select-none"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none'
             }}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
           >
             {categories.map((category) => (
               <div
@@ -88,14 +120,17 @@ const CategoryScroll = () => {
                 className="flex-shrink-0 flex flex-col items-center cursor-pointer group bg-gray-800/20"
               >
                 {/* Circular Image Container */}
-                <div className="relative w-16 h-16 mb-2">
-                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-yellow-300/50 group-hover:border-yellow-500 transition-all duration-300 group-hover:scale-105">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0"></div>
+                <div className="relative w-[4.4rem] h-[4.4rem] mb-2">
+                  {/* Instagram story-style white border */}
+                  <div className="w-full h-full rounded-full border-[0.14rem] border-yellow-800 p-[0.15rem] bg-white">
+                    <div className="w-full h-full rounded-full overflow-hidden group-hover:scale-105">
+                      <img
+                        src={category.image}
+                        alt={category.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0"></div>
+                    </div>
                   </div>
                   
                   {/* Hover Overlay */}

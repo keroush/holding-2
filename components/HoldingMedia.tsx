@@ -7,6 +7,10 @@ import { ArrowRight, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-reac
 const HoldingMedia = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [currentMobileSlide, setCurrentMobileSlide] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [currentX, setCurrentX] = useState(0)
+  const [dragOffset, setDragOffset] = useState(0)
   const mediaFeatures = [
     {
       title: "Global Investment Leadership",
@@ -108,6 +112,50 @@ const HoldingMedia = () => {
 
   const goToMobileSlide = (index: number) => {
     setCurrentMobileSlide(index)
+  }
+
+  // Mouse swipe functionality for mobile
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsDragging(true)
+    setStartX(e.clientX)
+    setCurrentX(e.clientX)
+    setDragOffset(0)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const newCurrentX = e.clientX
+    const diff = newCurrentX - startX
+    setCurrentX(newCurrentX)
+    setDragOffset(diff)
+  }
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging) return
+    e.preventDefault()
+    setIsDragging(false)
+    
+    const threshold = 50 // Minimum drag distance to trigger slide change
+    if (Math.abs(dragOffset) > threshold) {
+      if (dragOffset > 0) {
+        // Dragged right - go to previous slide
+        prevMobileSlide()
+      } else {
+        // Dragged left - go to next slide
+        nextMobileSlide()
+      }
+    }
+    
+    setDragOffset(0)
+  }
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false)
+      setDragOffset(0)
+    }
   }
 
   // Mobile auto-swipe functionality
@@ -242,8 +290,15 @@ const HoldingMedia = () => {
           {/* Mobile Swiper Container */}
           <div className="relative overflow-hidden">
             <div 
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{ transform: `translateX(-${currentMobileSlide * 100}%)` }}
+              className="flex transition-transform duration-300 ease-in-out cursor-grab active:cursor-grabbing select-none"
+              style={{ 
+                transform: `translateX(calc(-${currentMobileSlide * 100}% + ${isDragging ? dragOffset : 0}px))`,
+                transition: isDragging ? 'none' : 'transform 300ms ease-in-out'
+              }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
             >
               {mediaFeatures.map((feature, index) => (
                 <div

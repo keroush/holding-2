@@ -42,6 +42,12 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-gray-800 overflow-hidden">
+      {/* Golden Rainbow - Mobile Only */}
+      <div className="md:hidden absolute top-0 left-0 w-16 h-16 pointer-events-none">
+        <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-yellow-400 via-orange-500 via-red-500 via-pink-500 via-purple-500 to-blue-500 opacity-80 rounded-br-full"></div>
+        <div className="absolute top-1 left-1 w-14 h-14 bg-black/95 rounded-br-full"></div>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
