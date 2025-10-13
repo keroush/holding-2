@@ -41,7 +41,7 @@ const Navigation = () => {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-gray-800 overflow-hidden">
+    <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-md z-50 border-b border-yellow-800 overflow-hidden">
       {/* Golden Wave - Mobile Only */}
       <div className="md:hidden absolute top-0 left-0 w-full h-full pointer-events-none">
         <svg className="absolute top-0 left-0 w-full h-10" viewBox="0 0 1200 24" preserveAspectRatio="none">

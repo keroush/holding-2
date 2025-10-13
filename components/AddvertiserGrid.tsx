@@ -1,16 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import { Building2, TrendingUp, Users, Globe, Zap, ChevronLeft, ChevronRight } from 'lucide-react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 
-const AddvertiserSwiper = () => {
+const AddvertiserGrid = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   
   const companies = [
@@ -82,62 +79,16 @@ const AddvertiserSwiper = () => {
     }
   ]
 
-  // Auto-swipe functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % companies.length)
-    }, 3000) // 3 seconds
-
-    return () => clearInterval(interval)
-  }, [companies.length])
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % companies.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + companies.length) % companies.length)
-  }
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
 
   return (
-    <section className="section-padding bg-gray-800 -mt-[3.4rem] -mb-[2.3rem] md:hidden mx-[0.09rem]">
-      <div className="max-w-7xl mx-auto mx-1 md:hidden relative overflow-hidden">
+    <section className="section-padding bg-gray-800 -mt-[3.4rem] -mb-[2.5rem] md:hidden mx-[0.3rem]">
+      <div className="mx-1 md:hidden relative overflow-hidden grid grid-cols-2 gap-2">
         {/* Swiper Container */}
-        <Swiper
-          modules={[Navigation, Autoplay, Pagination]}
-          spaceBetween={16}
-          slidesPerView={1}
-          loop={true}
-          navigation={{
-            nextEl: ".swiper-button-next-custom",
-            prevEl: ".swiper-button-prev-custom",
-          }}
-          pagination={{
-            el: ".swiper-pagination-advertiser",
-            clickable: true,
-            bulletClass: "swiper-pagination-bullet-advertiser",
-            bulletActiveClass: "swiper-pagination-bullet-active-advertiser",
-            renderBullet: function (index, className) {
-              return '<span class="' + className + '"></span>';
-            },
-          }}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          grabCursor={true}
-          className="relative z-10"
-        >
-          {companies.map((company, index) => {
+          {companies.slice(0,4).map((company, index) => {
             const Icon = company.icon;
             return (
-              <SwiperSlide key={company.name}>
                 <div className="">
-                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-700 h-full flex flex-col mx-1">
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-gray-700 h-20 w-[100%] flex flex-col">
                     {/* Company Image */}
                     <div className="relative h-48 overflow-hidden">
                       <img
@@ -151,82 +102,27 @@ const AddvertiserSwiper = () => {
 
                       {/* Logo Overlay */}
                       <div className="absolute top-3 w-full">
-                        <div className="absolute right-3 flex items-center justify-center w-20 h-20 rounded-full bg-black/90 backdrop-blur-sm shadow-lg flex-shrink-0">
-                          <img
-                            src={company.logo}
-                            alt="Company Logo"
-                            className="w-16 h-16"
-                          />
-                        </div>
                         <div className="absolute top-0 w-full">
-                          <span className="absolute top-[1.7rem] right-[6.5rem] text-yellow-300 font-bold text-2xl drop-shadow-lg">
+                          <span className="absolute top-[2.4rem] left-[0.7rem] text-yellow-300 font-bold text-sm drop-shadow-lg">
                             {company.name}
                           </span>
-                          <span className="absolute top-[0.4rem] right-[6rem] rounded-md p-[0.1rem] text-white font-bold text-sm drop-shadow-lg">
+                          <span className="absolute top-[1.6rem] left-[1rem] rounded-md p-[0.1rem] text-white font-bold text-xs drop-shadow-lg">
                             {company.tag}
                           </span>
-                        </div>
-                      </div>
-
-                      {/* Bottom Tags */}
-                      <div className="absolute bottom-[0.4rem] left-2 z-30">
-                        <div className="flex flex-wrap gap-1">
-                          {company.bottomTags
-                            .slice(0, 3)
-                            .map((tag, tagIndex) => (
-                              <span
-                                key={tagIndex}
-                                className="bg-gray-200 text-black text-xs px-2 py-1 rounded-full shadow-xl font-bold border-[0.09rem] border-yellow-300"
-                              >
-                                {tag}
-                              </span>
-                            ))}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
             );
           })}
-        </Swiper>
-
         {/* Custom Pagination Dots */}
         <div className="absolute bottom-[0.45rem] right-[0.5rem] z-30">
           <div className="swiper-pagination-advertiser flex space-x-2"></div>
         </div>
       </div>
-      {/* Custom Pagination Styles */}
-      <style jsx global>{`
-        .swiper-pagination-bullet-advertiser {
-          width: 10px !important;
-          height: 10px !important;
-          background: #6b7280 !important;
-          border-radius: 50% !important;
-          cursor: pointer !important;
-          transition: all 0.3s ease !important;
-          display: inline-block !important;
-          margin: 0 4px !important;
-          opacity: 1 !important;
-        }
-        .swiper-pagination-bullet-active-advertiser {
-          background: #fcd34d !important;
-          width: 20px !important;
-          height: 12px !important;
-          border-top-left-radius: 15px !important;
-          border-top-right-radius: 15px !important;
-          border-bottom-left-radius: 15px !important;
-          border-bottom-right-radius: 15px !important;
-        }
-        .swiper-pagination-advertiser {
-          position: relative !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: flex-start !important;
-        }
-      `}</style>
     </section>
   );
 }
 
-export default AddvertiserSwiper
+export default AddvertiserGrid

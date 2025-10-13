@@ -279,9 +279,6 @@ const SubCompanies = () => {
             margin: 0 4px !important;
             opacity: 1 !important;
           }
-          .swiper-pagination-bullet-subcompanies:hover {
-            background: #9ca3af !important;
-          }
           .swiper-pagination-bullet-active-subcompanies {
             background: #fcd34d !important;
             width: 20px !important;

@@ -12,6 +12,7 @@ import Results from '@/components/Results'
 import Footer from '@/components/Footer'
 import BottomNavbar from '@/components/BottomNavbar'
 import AddvertiserSwiper from '@/components/AddvertiserSwiper'
+import AddvertiserGrid from '@/components/AddvertiserGrid'
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <AddvertiserSwiper />
       <ServicesGrid />
       <SubCompanies />
+      <AddvertiserGrid />
       <OurFields />
       <HoldingMedia />
       <Footer />
