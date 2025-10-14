@@ -117,10 +117,10 @@ const AddvertiserSwiper = () => {
             prevEl: ".swiper-button-prev-custom",
           }}
           pagination={{
-            el: ".swiper-pagination-advertiser",
+            el: ".swiper-pagination-advertiserer",
             clickable: true,
-            bulletClass: "swiper-pagination-bullet-advertiser",
-            bulletActiveClass: "swiper-pagination-bullet-active-advertiser",
+            bulletClass: "swiper-pagination-bullet-advertiserer",
+            bulletActiveClass: "swiper-pagination-bullet-active-advertiserer",
             renderBullet: function (index, className) {
               return '<span class="' + className + '"></span>';
             },
@@ -192,15 +192,15 @@ const AddvertiserSwiper = () => {
         </Swiper>
 
         {/* Custom Pagination Dots */}
-        <div className="absolute bottom-[0.45rem] right-[0.5rem] z-30">
-          <div className="swiper-pagination-advertiser flex space-x-2"></div>
+        <div className="absolute bottom-[0.4rem] right-[0.6rem] z-30">
+          <div className="swiper-pagination-advertiserer flex space-x-2"></div>
         </div>
       </div>
       {/* Custom Pagination Styles */}
       <style jsx global>{`
-        .swiper-pagination-bullet-advertiser {
-          width: 10px !important;
-          height: 10px !important;
+        .swiper-pagination-bullet-advertiserer {
+          width: 8px !important;
+          height: 8px !important;
           background: #6b7280 !important;
           border-radius: 50% !important;
           cursor: pointer !important;
@@ -209,7 +209,7 @@ const AddvertiserSwiper = () => {
           margin: 0 4px !important;
           opacity: 1 !important;
         }
-        .swiper-pagination-bullet-active-advertiser {
+        .swiper-pagination-bullet-active-advertiserer {
           background: #fcd34d !important;
           width: 20px !important;
           height: 12px !important;
@@ -218,7 +218,10 @@ const AddvertiserSwiper = () => {
           border-bottom-left-radius: 15px !important;
           border-bottom-right-radius: 15px !important;
         }
-        .swiper-pagination-advertiser {
+        .swiper-pagination-bullet-hover-advertiserer {
+          background: #fcd34d !important;
+        }
+        .swiper-pagination-advertiserer {
           position: relative !important;
           display: flex !important;
           align-items: center !important;

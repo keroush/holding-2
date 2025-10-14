@@ -11,7 +11,7 @@ const ServicesGrid = () => {
   const services = [
     {
       id: 1,
-      name: "Real Estate",
+      name: "Real",
       icon: Building2,
       bgColor: "bg-blue-600",
       textColor: "text-blue-200"
@@ -25,7 +25,7 @@ const ServicesGrid = () => {
     },
     {
       id: 3,
-      name: "HR Services",
+      name: "HR",
       icon: Users,
       bgColor: "bg-purple-600",
       textColor: "text-purple-200"
@@ -38,7 +38,7 @@ const ServicesGrid = () => {
       textColor: "text-yellow-200"
     }, {
       id: 1,
-      name: "Real Estate",
+      name: "Real",
       icon: Building2,
       bgColor: "bg-blue-600",
       textColor: "text-blue-200"
@@ -52,7 +52,7 @@ const ServicesGrid = () => {
     },
     {
       id: 3,
-      name: "HR Services",
+      name: "HR",
       icon: Users,
       bgColor: "bg-purple-600",
       textColor: "text-purple-200"
@@ -67,7 +67,7 @@ const ServicesGrid = () => {
   ]
 
   return (
-    <section className="md:hidden bg-gray-900 py-6 rounded-3xl">
+    <section className="md:hidden bg-gray-900 py-6 rounded-2xl">
       <div className="px-4">
         {/* Section Header */}
         <div className="text-center mb-6">

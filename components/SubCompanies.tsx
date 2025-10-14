@@ -261,7 +261,7 @@ const SubCompanies = () => {
           </Swiper>
 
           {/* Custom Pagination Dots */}
-          <div className='absolute bottom-[0.45rem] right-[0.5rem]'>
+          <div className='absolute bottom-[0.35rem] right-[0.5rem]'>
             <div className="swiper-pagination-subcompanies flex space-x-2 z-10"></div>
           </div>
         </div>
@@ -269,8 +269,8 @@ const SubCompanies = () => {
         {/* Custom Pagination Styles */}
         <style jsx global>{`
           .swiper-pagination-bullet-subcompanies {
-            width: 10px !important;
-            height: 10px !important;
+            width: 8px !important;
+            height: 8px !important;
             background: #6b7280 !important;
             border-radius: 50% !important;
             cursor: pointer !important;
